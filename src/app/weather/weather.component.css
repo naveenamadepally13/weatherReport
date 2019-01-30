@@ -1,0 +1,17 @@
+.boxshadow1{
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(54,70,102,1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(54,70,102,1);
+  box-shadow: 10px 10px 5px 0px rgba(54,70,102,1);
+}
+.containermain{
+  padding-top: 40px;
+}
+.label1{
+  padding-left:55px;
+  color : white;
+  padding-right: 10px;
+}
+.weatheresult{
+  color : white;
+  padding: 10px 10px 10px 10px;
+}
