@@ -1,0 +1,69 @@
+<div class="container containermain ">
+  <div class="row">
+    <div class="col-sm-4 ">
+      <div class="border align-content-center rounded boxshadow1">
+        <form #weathersearch = "ngForm" (ngSubmit) = "onClickSubmit(weathersearch.value)" >
+          <div class="form-group row" style="padding-top: 15px">
+            <label for="state" class="label1">State :</label>
+            <input type="text" style="width:50%;" class="form-control" name="state" id="state" ngModel>
+          </div>
+          <div class="form-group row ">
+            <label for="city" style="padding-left: 63px;" class="label1">City : </label>
+            <input type="text" style="width:50%;" class="form-control" name="city" id="city" ngModel>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-8 ">
+      <div class="border weatheresult boxshadow1">
+        <h3>{{cityName}}</h3>
+        <div class="row">
+          <img src={{currentweatherData.icon_url}}/>
+        </div>
+       <div class="row">
+         {{currentweatherData.fcttext}}
+       </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" style="color: white">
+    <h3>Hourly Forecast</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-1">
+      <div class="border boxshadow1 weatheresult">
+
+        Hour 5
+      </div>
+
+    </div>
+    <div class="col-md-2">
+      <div class="border boxshadow1 weatheresult">
+
+        Hour 1
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="border boxshadow1 weatheresult">
+
+        HOur 2
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="border boxshadow1 weatheresult">
+
+        Hour 3
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="border boxshadow1 weatheresult">
+
+        Hour 4
+      </div>
+    </div>
+  </div>
+</div>

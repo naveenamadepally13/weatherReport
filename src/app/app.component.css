@@ -1,0 +1,11 @@
+.divdetails{
+  background-color: lightsteelblue;
+  background-image: url("../assets/images/background4.jpg");
+  /*background-blend-mode: overlay;*/
+  height: 625px;
+  background-size: cover;
+}
+.title{
+  text-align:center;
+  color : white;
+}
