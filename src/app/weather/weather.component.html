@@ -1,7 +1,7 @@
 <div class="container containermain ">
   <div class="row">
     <div class="col-sm-5 ">
-      <div class="border align-content-center rounded boxshadow1">
+      <div class="border align-content-center rounded boxshadow1 fixHeight">
         <form #weathersearch = "ngForm" (ngSubmit) = "onClickSubmit(weathersearch.value)" >
           <div class="form-group row" style="padding-top: 15px">
             <div class="col-sm-5 ">
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="col-sm-7 ">
-      <div class="border weatheresult boxshadow1">
+      <div class="border weatheresult rounded boxshadow1 fixHeight">
         <div *ngIf="loadMessage">Please enter State Code, City Name and click on Get Weather Details button to get the current weather condition. </div>
         <div *ngIf="errorMessage">The state code or the city name you have entered is incorrect. Please add valid state code and city name. </div>
         <div *ngIf="showWeather">
@@ -34,8 +34,10 @@
         <span class="font-italic">({{currentweatherData.observation_time}})</span>
         <div class="row">
           <div class="col-sm-6">
-          <img src={{currentweatherData.icon_url}}/>
-            <span>{{currentweatherData.icon}}</span>
+            <figure>
+              <img src={{currentweatherData.icon_url}}/>
+              <figcaption class="figure-caption text-white text-center">{{currentweatherData.icon}}</figcaption>
+            </figure>
           </div>
           <div class="col-sm-6">
             <div>Temperature: {{currentweatherData.temperature_string}}</div>
@@ -55,12 +57,12 @@
     <h3>Weather Forecast</h3>
     </div>
   </div>
-  <div class="row">
+  <div class="row m-0">
     <div class="col-md-2 col-md-offset-1" *ngFor="let i of forecastData | slice:1:6;" >
-      <div class="border boxshadow1 weatheresult" >
+      <div class="border boxshadow1 weatheresult fixHeightForecast" >
         <h5>{{i.title}}</h5>
         <div class="row">
-          <img src={{i.icon_url}}/>
+          <img src={{i.icon_url}}>
         </div>
         <div class="row">
           {{i.fcttext}}
