@@ -16,7 +16,13 @@
   padding: 10px 10px 10px 10px;
 }
 img {
-  margin: 0 0 0 40%;
-  width: 16%;
-  height: 10%;
+  margin: 5% 0 0 40%;
+  width: 25%;
+  height: 55%;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
