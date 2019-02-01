@@ -1,76 +1,86 @@
 <div class="container containermain ">
   <div class="row">
     <div class="col-sm-5 ">
-      <div class="border align-content-center rounded boxshadow1 fixHeight">
+      <div class=" align-content-center rounded boxshadow1 fixHeight">
         <form #weathersearch = "ngForm" (ngSubmit) = "onClickSubmit(weathersearch.value)" >
           <div class="form-group row" style="padding-top: 15px">
             <div class="col-sm-5 ">
-            <label for="state" class="label1">Enter State Code:</label>
+              <label for="state" class="label1">Enter State Code:</label>
             </div>
             <div class="col-sm-7 ">
-            <input type="text"  class="form-control" name="state" id="state" ngModel>
+              <input type="text" style="width:100%" class="form-control" name="state" id="state" ngModel>
             </div>
           </div>
           <div class="form-group row ">
             <div class="col-sm-5 ">
-            <label for="city"  class="label1">Enter City Name : </label>
+              <label for="city"  class="label1">Enter City Name : </label>
             </div>
             <div class="col-sm-7 ">
-            <input type="text"  class="form-control" name="city" id="city" ngModel>
+              <input type="text" style="width:100%"  class="form-control" name="city" id="city" ngModel>
             </div>
           </div>
           <div class="buttonContainer">
-          <button type="submit" class="btn btn-info text-white">Get Weather Details</button>
+            <button type="submit" class="btn btn-info text-white">Get Weather Details</button>
           </div>
         </form>
       </div>
     </div>
     <div class="col-sm-7 ">
-      <div class="border weatheresult rounded boxshadow1 fixHeight">
-        <div *ngIf="loadMessage">Please enter State Code, City Name and click on Get Weather Details button to get the current weather condition. </div>
-        <div *ngIf="errorMessage">The state code or the city name you have entered is incorrect. Please add valid state code and city name. </div>
-        <div *ngIf="showWeather">
-        <h3><u>{{cityName}}</u></h3>
-        <span class="font-italic">({{currentweatherData.observation_time}})</span>
-        <div class="row">
-          <div class="col-sm-6">
-            <figure>
-              <img src={{currentweatherData.icon_url}}/>
-              <figcaption class="figure-caption text-white text-center">{{currentweatherData.icon}}</figcaption>
-            </figure>
-          </div>
-          <div class="col-sm-6">
-            <div>Temperature: {{currentweatherData.temperature_string}}</div>
-            <div>Wind: {{currentweatherData.wind_mph}} mph </div>
-            <div>Pressure: {{currentweatherData.relative_humidity}}</div>
-
-          </div>
+      <div class=" weatheresult rounded boxshadow1 fixHeight">
+        <div *ngIf="loadMessage" >Please enter State Code, City Name and click on Get Weather Details button to get the current weather condition. </div>
+        <div *ngIf="errorMessage" style="color:red">
+          Please enter State Code, City Name and click on Get Weather Details button to get the current wea
         </div>
+        <div *ngIf="currentweatherData">
+          <h3>{{cityName}}</h3>
+          <span class="font-italic">({{currentweatherData.observation_time}})</span>
+          <div class="row">
+            <div class="col-sm-6">
+              <figure>
+                <img class="mainimage" src={{currentweatherData.icon_url}}/>
+                <figcaption class="figure-caption text-white text-center figcap">{{currentweatherData.icon}}</figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-6">
+              <div>Temperature: {{currentweatherData.temperature_string}}</div>
+              <div>Wind: {{currentweatherData.wind_mph}} mph </div>
+              <div>Pressure: {{currentweatherData.relative_humidity}}</div>
+
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
   </div>
   <div *ngIf="hourlyForeCast">
-  <div class="row" >
-    <div class="col-sm-12" style="color: white;padding: 30px 10px 10px 10px;"  *ngIf="forecastFlag==1" >
-    <h3>Weather Forecast</h3>
+    <div class="row" >
+      <div class="col-sm-12" style="color: white;padding: 30px 10px 10px 10px;"  *ngIf="forecastFlag==1" >
+        <h3>Weather Forecast</h3>
+      </div>
     </div>
-  </div>
-  <div class="row m-0">
-    <div class="col-md-2 col-md-offset-1" *ngFor="let i of forecastData | slice:1:6;" >
-      <div class="border boxshadow1 weatheresult fixHeightForecast" >
-        <h5>{{i.title}}</h5>
-        <div class="row">
-          <img src={{i.icon_url}}>
+    <div class="row m-0">
+      <div  class="col-md-2 " *ngFor="let hourlyData of forecastData | slice:1:6;" >
+        <div  class=" boxshadow1 weatheresult fixHeightForecast" >
+          <b>{{hourlyData.FCTTIME.civil}}</b>
+          <div class="row" style="padding-left: 50px;">
+            <img src={{hourlyData.icon_url}}>
+          </div>
+          <div style ="padding-left:45px" class="row" >
+            {{hourlyData.icon}}
+          </div>
+          <div class="row" style = "font-size: 14px;margin: auto; ">
+            <div class="col-md-12" style="padding-left: 1px;padding-top:15px">
+              Temperature : {{hourlyData.temp.english}} F <br>
+              Feels Like : {{hourlyData.feelslike.english}} F<br>
+              Wind : {{hourlyData.windchill.metric}} mph<br>
+              humidity : {{hourlyData.humidity}} %
+            </div>
+          </div>
         </div>
-        <div class="row">
-          {{i.fcttext}}
-        </div>
+
       </div>
 
     </div>
-
-  </div>
   </div>
 </div>
