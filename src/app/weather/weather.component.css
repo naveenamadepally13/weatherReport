@@ -5,7 +5,7 @@
   height: 230px;
 }
 .containermain{
-  padding-top: 40px;
+  padding-top: 10px;
 }
 .label1{
   color : white;
@@ -44,7 +44,7 @@ img {
 
 .fixHeightForecast
 {
-  height: 250px !important;
+  height: 230px !important;
   width: 200px;
 }
 
