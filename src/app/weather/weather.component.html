@@ -62,14 +62,14 @@
       <div  class="col-md-2 m-37" *ngFor="let hourlyData of forecastData | slice:1:6;" >
         <div class=" boxshadow1 weatheresult fixHeightForecast" >
           <b>{{hourlyData.FCTTIME.civil}}</b>
-          <div class="row" style="padding-left: 50px;">
+          <div class="row" style="padding-left: 75px;">
             <img src={{hourlyData.icon_url}}>
           </div>
-          <div style ="padding-left:45px" class="row" >
+          <div style ="padding-left:75px" class="row" >
             {{hourlyData.icon}}
           </div>
           <div class="row" style = "font-size: 14px;margin: auto; ">
-            <div class="col-md-12" style="padding-left: 1px;padding-top:15px">
+            <div class="col-md-12" style="padding-left: 25px;padding-top:15px">
               Temperature : {{hourlyData.temp.english}} F <br>
               Real Feel : {{hourlyData.feelslike.english}} F<br>
               Wind : {{hourlyData.windchill.metric}} mph<br>
