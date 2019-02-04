@@ -2,30 +2,11 @@
   background-color: lightsteelblue;
   background-image: url("../assets/images/background4.jpg");
   /*background-blend-mode: overlay;*/
-  height: 720px;
+  height: 626px;
   background-size: cover;
- /* object-fit: cover;*/
- /* padding: 150px;*/
- /* alignment: center;
-  text-align: center;*/
-  background-repeat: no-repeat;
-  /*background-size: 1350px 1025px;*/
-
-
 }
 .title{
+  padding-top: 10px;
   text-align:center;
   color : white;
 }
-
-.fill {
-  min-height: 100%;
-  height: 100%;
-}
-body
-{
-  background-image:url("../assets/images/background4.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
-}
-
